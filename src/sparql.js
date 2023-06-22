@@ -1,11 +1,11 @@
-import { Store } from 'oxigraph';
+import { Store, BlankNode } from 'oxigraph';
 
 /**
  * A class for running sparql queries
  */
 export class SparqlRunner {
   /**
-   * @param {string} owlString rdf/xml data to load into the SPARQL runner 
+   * @param {string} owlString rdf/xml data to load into the SPARQL runner
    */
   constructor(owlString) {
     this.engine = new Store();
@@ -28,7 +28,16 @@ export class SparqlRunner {
           output = fields.join('\t') + '\n';
         }
         const row = fields
-          .map((f) => datum.get(f)?.value ?? undefined)
+          .map((f) => {
+            const node = datum.get(f);
+            if (!node) {
+              return undefined;
+            } else if (node instanceof BlankNode) {
+              return `bn-${node.value}`;
+            } else {
+              return node.value;
+            }
+          })
           .filter((v) => v);
         output += row.join('\t') + '\n';
       }

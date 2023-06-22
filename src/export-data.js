@@ -14,7 +14,7 @@ export function exportEdges(engine, outputFolder) {
       readFileSync('queries/edges.rq').toString(),
       'text/tab-separated-values'
     )
-    .replace(/\t\_\:t/g, '\tHRA bn-') // Reformat blank nodes
+    .replace(/\tbn\-/g, '\tHRA bn-') // Reformat blank nodes
     .replace(/\t\n/g, '\n') // Remove empty cells (only not blank for has_marker_component)
     .replace(/\"/g, ''); // Remove quotes
 
