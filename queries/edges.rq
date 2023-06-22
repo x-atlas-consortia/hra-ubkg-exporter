@@ -49,7 +49,7 @@ WHERE {
       "http://purl.obolibrary.org/obo/CL_", "CL "),
       "http://purl.obolibrary.org/obo/PCL_", "PCL "),
       "https://purl.org/ccf/ASCTB-TEMP_", "HRA temp-"),
-      "http://purl.org/ccf/", "HRA ")
+      "http://purl.org/ccf/", "")
   as ?predicate)
   BIND(
     REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(
