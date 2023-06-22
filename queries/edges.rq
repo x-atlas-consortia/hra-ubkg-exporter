@@ -1,0 +1,67 @@
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX ccf: <http://purl.org/ccf/>
+PREFIX has_characterizing_biomarker_set: <http://purl.obolibrary.org/obo/RO_0015004>
+
+SELECT ?subject ?predicate ?object ?evidence_class
+WHERE {
+  {
+    # Get AS1 part_of AS2 relations
+    ?s ?p ?o .
+    ?s ccf:ccf_part_of ?o .
+  } UNION {
+    # Get CT located_in AS relations
+    ?s ?p ?o .
+    ?s ccf:ccf_located_in ?o .
+  }
+  UNION {
+    # Get BM characterizes CT relations
+    ?s rdfs:subClassOf [
+      owl:onProperty has_characterizing_biomarker_set: ;
+      owl:someValuesFrom [ owl:intersectionOf ?bn3 ]] .
+    ?bn3 rdf:rest*/rdf:first [
+      owl:onProperty ?p ;
+      owl:onProperty ccf:has_marker_component ;
+      owl:someValuesFrom ?o
+    ] .
+  }
+  FILTER (?p != rdfs:subClassOf)
+  BIND(
+    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(
+      STR(?s),
+      "http://purl.obolibrary.org/obo/UBERON_", "UBERON "),
+      "http://purl.obolibrary.org/obo/LMHA_", "LMHA "),
+      "http://purl.org/sig/ont/fma/fma", "FMA "),
+      "http://identifiers.org/hgnc/", "HGNC "),
+      "http://purl.obolibrary.org/obo/CL_", "CL "),
+      "http://purl.obolibrary.org/obo/PCL_", "PCL "),
+      "https://purl.org/ccf/ASCTB-TEMP_", "HRA temp-"),
+      "http://purl.org/ccf/", "HRA ")
+  as ?subject)
+  BIND(
+    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(
+      STR(?p),
+      "http://purl.obolibrary.org/obo/UBERON_", "UBERON "),
+      "http://purl.obolibrary.org/obo/LMHA_", "LMHA "),
+      "http://purl.org/sig/ont/fma/fma", "FMA "),
+      "http://identifiers.org/hgnc/", "HGNC "),
+      "http://purl.obolibrary.org/obo/CL_", "CL "),
+      "http://purl.obolibrary.org/obo/PCL_", "PCL "),
+      "https://purl.org/ccf/ASCTB-TEMP_", "HRA temp-"),
+      "http://purl.org/ccf/", "HRA ")
+  as ?predicate)
+  BIND(
+    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(
+      STR(?o),
+      "http://purl.obolibrary.org/obo/UBERON_", "UBERON "),
+      "http://purl.obolibrary.org/obo/LMHA_", "LMHA "),
+      "http://purl.org/sig/ont/fma/fma", "FMA "),
+      "http://identifiers.org/hgnc/", "HGNC "),
+      "http://purl.obolibrary.org/obo/CL_", "CL "),
+      "http://purl.obolibrary.org/obo/PCL_", "PCL "),
+      "https://purl.org/ccf/ASCTB-TEMP_", "HRA temp-"),
+      "http://purl.org/ccf/", "HRA ")
+  as ?object)
+  BIND(?bn3 as ?evidence_class)
+}

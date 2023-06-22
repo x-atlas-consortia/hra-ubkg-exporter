@@ -1,0 +1,33 @@
+{
+  "name": "hra-ubkg-exporter",
+  "version": "0.0.1",
+  "description": "A CLI for exporting a subset of the HRA Knowledge Graph to UBKG format",
+  "main": "src/cli.js",
+  "bin": {
+    "hra-ubkg-exporter": "src/cli.js"
+  },
+  "engineStrict": true,
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "type": "module",
+  "scripts": {
+    "start": "node ./src/cli.js",
+    "hra-ubkg-exporter": "node ./src/cli.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "HRA",
+    "UBKG",
+    "SPARQL",
+    "Knowledge Graphs",
+    "RDF"
+  ],
+  "author": "Bruce W. Herr II (bherr@indiana.edu)",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^11.0.0",
+    "oxigraph": "^0.3.18",
+    "shelljs": "^0.8.5"
+  }
+}
