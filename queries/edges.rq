@@ -14,6 +14,10 @@ WHERE {
     # Get CT located_in AS relations
     ?s ?p ?o .
     ?s ccf:ccf_located_in ?o .
+  } UNION {
+    # Get CT is_a CT relations
+    ?s ?p ?o .
+    ?s ccf:ccf_ct_isa ?o .
   }
   UNION {
     # Get BM characterizes CT relations
@@ -40,16 +44,14 @@ WHERE {
       "http://purl.org/ccf/", "HRA ")
   as ?subject)
   BIND(
-    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(
+    # Rename predicates to fit best in UBKG
+    REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(
       STR(?p),
-      "http://purl.obolibrary.org/obo/UBERON_", "UBERON "),
-      "http://purl.obolibrary.org/obo/LMHA_", "LMHA "),
-      "http://purl.org/sig/ont/fma/fma", "FMA "),
-      "http://identifiers.org/hgnc/", "HGNC "),
-      "http://purl.obolibrary.org/obo/CL_", "CL "),
-      "http://purl.obolibrary.org/obo/PCL_", "PCL "),
-      "https://purl.org/ccf/ASCTB-TEMP_", "HRA temp-"),
-      "http://purl.org/ccf/", "")
+      "http://purl.org/ccf/", ""),
+      "has_marker_component", "characterized_by"),
+      "ccf_located_in", "located_in"),
+      "ccf_part_of", "part_of"),
+      "ccf_ct_isa", "isa")
   as ?predicate)
   BIND(
     REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(
