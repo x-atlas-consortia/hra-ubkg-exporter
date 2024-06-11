@@ -5,11 +5,11 @@ import { Store, BlankNode } from 'oxigraph';
  */
 export class SparqlRunner {
   /**
-   * @param {string} owlString rdf/xml data to load into the SPARQL runner
+   * @param {string} ttlString text/turtle data to load into the SPARQL runner
    */
-  constructor(owlString) {
+  constructor(ttlString) {
     this.engine = new Store();
-    this.engine.load(owlString, 'application/rdf+xml');
+    this.engine.load(ttlString, 'text/turtle');
   }
 
   /**

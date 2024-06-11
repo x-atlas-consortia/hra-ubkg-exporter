@@ -7,9 +7,9 @@
  */
 function getHraOwlUrl(version) {
   if (version === 'latest') {
-    return 'https://purl.org/ccf/ccf.owl';
+    return 'https://purl.humanatlas.io/collection/hra';
   } else {
-    return `https://purl.org/ccf/${version}/ccf.owl`;
+    return `https://purl.humanatlas.io/collection/hra/${version}`;
   }
 }
 
@@ -17,11 +17,14 @@ function getHraOwlUrl(version) {
  * Fetches the HRA from a given url
  *
  * @param {string} url
- * @returns HRA as a string (in rdf/xml format)
+ * @returns HRA as a string (in text/turtle format)
  */
 function fetchHraOwl(url) {
   return fetch(url, {
     redirect: 'follow',
+    headers: {
+      'Accept': 'text/turtle'
+    }
   }).then((r) => r.text());
 }
 
@@ -31,7 +34,7 @@ function fetchHraOwl(url) {
  * @param {string} version the version of the HRA to fetch
  * @returns the HRA data as a string (in rdf/xml format)
  */
-export async function getHraOwlData(version) {
+export async function getHraOwlData(_outputFolder, version) {
   const owlUrl = getHraOwlUrl(version);
   return fetchHraOwl(owlUrl);
 }
