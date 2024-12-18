@@ -66,4 +66,6 @@ WHERE {
       "http://purl.org/ccf/", "HRA ")
   as ?object)
   BIND(?bn3 as ?evidence_class)
+  
+  FILTER(!STRSTARTS(?subject, 'https://purl.humanatlas.io') && !STRSTARTS(?object, 'https://purl.humanatlas.io'))
 }

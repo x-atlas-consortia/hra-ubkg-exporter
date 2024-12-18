@@ -9,7 +9,7 @@ SELECT DISTINCT ?node_id (SAMPLE(?node_label) as ?node_label)
 WHERE {
   ?node rdfs:label ?label .
 
-  FILTER(CONTAINS(?node_id, ' ') && !STRSTARTS(?node_id, 'HRA latest/'))
+  FILTER(CONTAINS(?node_id, ' ') && !STRSTARTS(?node_id, 'HRA latest/') && !STRSTARTS(?node_id, 'https://purl.humanatlas.io'))
   BIND(
     REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(
       STR(?node),

@@ -7979,37 +7979,5 @@ FMA 52647	Cutaneous branch of supratrochlear nerve to upper eyelid
 HRA temp-il7r	IL7R
 UBERON 0002303	juxtaglomerular apparatus
 CL 0008034A
-https://purl.humanatlas.io/2d-ftu/large-intestine-crypt-lieberkuhn#primary
-UBERON:0000059
-https://purl.humanatlas.io/2d-ftu/pancreas-islets-langerhans#primary
-UBERON:0001264
-https://purl.humanatlas.io/2d-ftu/pancreas-pancreatic-acinus#primary
-https://purl.humanatlas.io/2d-ftu/pancreas-intercalated-duct#primary
-https://purl.humanatlas.io/2d-ftu/lung-pulmonary-alveolus#primary
-UBERON:0002048
-https://purl.humanatlas.io/2d-ftu/lung-bronchial-submucosal-gland#primary
-https://purl.humanatlas.io/2d-ftu/skin-dermal-papilla#primary
-UBERON:0002097
-https://purl.humanatlas.io/2d-ftu/skin-epidermal-ridge#primary
-https://purl.humanatlas.io/2d-ftu/spleen-red-pulp#primary
-UBERON:0002106
-https://purl.humanatlas.io/2d-ftu/spleen-white-pulp#primary
-https://purl.humanatlas.io/2d-ftu/liver-liver-lobule#primary
-UBERON:0002107
-https://purl.humanatlas.io/2d-ftu/small-intestine-villus#primary
-UBERON:0002108
-https://purl.humanatlas.io/2d-ftu/kidney-descending-thin-loop-of-henle#primary
-UBERON:0002113
-https://purl.humanatlas.io/2d-ftu/kidney-outer-medullary-collecting-duct#primary
-https://purl.humanatlas.io/2d-ftu/kidney-nephron#primary
-https://purl.humanatlas.io/2d-ftu/kidney-cortical-collecting-duct#primary
-https://purl.humanatlas.io/2d-ftu/kidney-renal-corpuscle#primary
-https://purl.humanatlas.io/2d-ftu/kidney-ascending-thin-loop-of-henle#primary
-https://purl.humanatlas.io/2d-ftu/kidney-thick-ascending-loop-of-henle#primary
-https://purl.humanatlas.io/2d-ftu/kidney-inner-medullary-collecting-duct#primary
-https://purl.humanatlas.io/2d-ftu/prostate-prostate-glandular-acinus#primary
-UBERON:0002367
-https://purl.humanatlas.io/2d-ftu/thymus-thymus-lobule#primary
-UBERON:0002370
 FMA 6591
 FMA 78594
